@@ -1290,6 +1290,7 @@ __metadata:
     effector: ^23.2.0
     effector-logger: ^0.15.0
     effector-react: ^23.2.0
+    effector-storage: ^7.1.0
     eslint: ^8.57.0
     eslint-plugin-react-hooks: ^4.6.0
     eslint-plugin-react-refresh: ^0.4.6
@@ -1510,6 +1511,15 @@ __metadata:
     effector: ^23.0.0
     react: ">=16.8.0 <19.0.0"
   checksum: 9989efbd212d29a42153aa5e7fb23dc5197957c98082245e89f973698a8bca22e722df7e26fffa77f13f84c43a2ecc130199be91e3000fb8bcd01897cd14c69b
+  languageName: node
+  linkType: hard
+
+"effector-storage@npm:^7.1.0":
+  version: 7.1.0
+  resolution: "effector-storage@npm:7.1.0"
+  peerDependencies:
+    effector: ^22.4.0 || ^23.0.0
+  checksum: 22d2cc289a28d24a81ad04fe886270cb870afd2e81b0b7d2c76d1b96547384851d4f1d60e2998c87fdffe576924afea1c4177c652a9f3cea96c8b9f993335e06
   languageName: node
   linkType: hard
 

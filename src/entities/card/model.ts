@@ -3,8 +3,10 @@ import { ICard } from "./types";
 import { v4 as uuid } from 'uuid';
 import { DragEndEvent } from "@dnd-kit/core";
 import { arrayMove } from "@dnd-kit/sortable";
+import { persist } from "effector-storage/local";
 
 export const $cards = createStore<ICard[]>([]);
+persist({ key: `@cards-test/cards`, store: $cards });
 
 export const addCard = createEvent<Omit<ICard, 'id'>>('add card');
 $cards.on(addCard, (prev, card) => [...prev, { id: uuid(), ...card }]);
