@@ -3,7 +3,7 @@ import cls from './card.module.sass';
 import { useSortable } from "@dnd-kit/sortable";
 import { CSS } from '@dnd-kit/utilities';
 import { CardSize } from "../types";
-import { MdDragHandle, MdMenu } from "react-icons/md";
+import { MdMenu } from "react-icons/md";
 
 interface ICardProps extends PropsWithChildren {
   id: string;
