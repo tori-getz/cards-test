@@ -16,7 +16,7 @@ export const CardList: React.FC = () => {
           key={card.id}
           title={card.title}
           description={card.description}
-          size={12} 
+          size={card.size} 
         >
           <div className={cls.card__actions}>
             <EditCard id={card.id} />

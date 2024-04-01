@@ -14,9 +14,13 @@ export const Card: React.FC<ICardProps> = ({
   title,
   description,
   children,
+  size,
 }) => {
   return (
-    <div className={cls.card}>
+    <div
+      className={cls.card}
+      style={{ gridColumn: `span ${size}` }}
+    >
       <h1 className={cls.card__title}>{title}</h1>
       <p>{description}</p>
       {children}
