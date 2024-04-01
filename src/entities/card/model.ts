@@ -1,6 +1,8 @@
 import { createEvent, createStore } from "effector";
 import { ICard } from "./types";
 import { v4 as uuid } from 'uuid';
+import { DragEndEvent } from "@dnd-kit/core";
+import { arrayMove } from "@dnd-kit/sortable";
 
 export const $cards = createStore<ICard[]>([]);
 
@@ -21,4 +23,16 @@ $cards.on(updateCard, (prev, updated) => {
 
     return updated;
   });
+});
+
+export const moveCards = createEvent<DragEndEvent>('move cards');
+$cards.on(moveCards, (items, event) => {
+  const { active, over } = event;
+
+  if (active.id === over?.id) return items;
+
+  const oldIndex = items.findIndex((item) => item.id === active.id);
+  const newIndex = items.findIndex((item) => item.id === over?.id);
+
+  return arrayMove(items, oldIndex, newIndex);
 });
