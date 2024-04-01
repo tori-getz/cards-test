@@ -49,6 +49,11 @@ export const AddCard: React.FC = () => {
           placeholder="Описание"
           {...register('description')}
         />
+        <Input
+          placeholder="Размер (от 3 до 12)"
+          type="number"
+          {...register('size')}
+        />
         <Button
           left={<MdCreate />}
           onClick={handleSubmit(onSubmit)}
