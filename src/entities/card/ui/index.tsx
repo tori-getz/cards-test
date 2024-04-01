@@ -3,6 +3,7 @@ import cls from './card.module.sass';
 import { useSortable } from "@dnd-kit/sortable";
 import { CSS } from '@dnd-kit/utilities';
 import { CardSize } from "../types";
+import { MdDragHandle, MdMenu } from "react-icons/md";
 
 interface ICardProps extends PropsWithChildren {
   id: string;
@@ -36,13 +37,20 @@ export const Card: React.FC<ICardProps> = ({
     <div
       ref={setNodeRef}
       className={cls.container}
-      {...attributes}
-      {...listeners}
     >
       <div className={cls.card} style={style}>
-        <h1 className={cls.card__title}>{title}</h1>
-        <p>{description}</p>
-        {children}
+        <div
+          className={cls.card__handle}
+          {...attributes}
+          {...listeners}
+        >
+          <MdMenu />
+        </div>
+        <div className={cls.card__body}>
+          <h1 className={cls.card__title}>{title}</h1>
+          <p>{description}</p>
+          {children}
+        </div>
       </div>
     </div>
   );

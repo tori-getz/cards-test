@@ -7,9 +7,21 @@
   border-radius: 12px
   background-color: #fff
   display: flex
-  flex-direction: column
-  padding: 12px
-  gap: 8px
-  cursor: pointer
+  align-items: center
+  &__handle
+    padding: 8px
+    margin: 8px
+    border-radius: 4px
+    transition: 1s background-color
+    svg
+      width: 18px
+      height: 18px
+    &:hover
+      background-color: #eee
+  &__body
+    display: flex
+    flex-direction: column
+    padding: 12px
+    gap: 8px
   &__title
     font-weight: 800

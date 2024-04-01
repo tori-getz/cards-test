@@ -53,7 +53,9 @@ export const CardList: React.FC = () => {
               description={card.description}
               size={card.size} 
             >
-              <div className={cls.card__actions}>
+              <div
+                className={cls.card__actions}
+              >
                 <EditCard id={card.id} />
                 <DeleteCard id={card.id} />
               </div>
