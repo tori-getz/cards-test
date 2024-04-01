@@ -25,6 +25,7 @@ export const EditCard: React.FC<IEditCardProps> = ({
   const {
     register,
     handleSubmit,
+    formState: { errors }
   } = useForm<ValidationType>({
     resolver: zodResolver(ValidationSchema),
     values: {
@@ -61,20 +62,29 @@ export const EditCard: React.FC<IEditCardProps> = ({
           placeholder="Название"
           {...register('title')}
         />
+        {errors.title && (
+          <p>{errors.title.message}</p>
+        )}
         <Input
           placeholder="Описание"
           {...register('description')}
         />
+        {errors.description && (
+          <p>{errors.description.message}</p>
+        )}
         <Input
           placeholder="Размер (от 3 до 12)"
           type="number"
           {...register('size')}
         />
+        {errors.size && (
+          <p>{errors.size.message}</p>
+        )}
         <Button
           left={<MdCreate />}
           onClick={handleSubmit(onSubmit)}
         >
-          Создать
+          Изменить
         </Button>
       </Modal>
     </div>
