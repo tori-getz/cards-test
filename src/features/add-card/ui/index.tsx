@@ -7,7 +7,7 @@ import { SubmitHandler, useForm } from 'react-hook-form';
 import cls from './add-card.module.sass';
 import { ValidationSchema, ValidationType } from "./validation-schema";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { addCard } from "~/entities/card";
+import { CardSize, addCard } from "~/entities/card";
 
 export const AddCard: React.FC = () => {
   const [modalOpen, setModalOpen] = useState<boolean>(false);
@@ -19,8 +19,11 @@ export const AddCard: React.FC = () => {
     resolver: zodResolver(ValidationSchema),
   });
 
-  const onSubmit: SubmitHandler<ValidationType> = (form) => {
-    addCard(form);
+  const onSubmit: SubmitHandler<ValidationType> = ({ size, ...form }) => {
+    addCard({
+      size: Number(size) as CardSize,
+      ...form
+    });
     setModalOpen(false);
   };
 

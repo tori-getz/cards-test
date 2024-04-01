@@ -7,7 +7,7 @@ import { SubmitHandler, useForm } from 'react-hook-form';
 import cls from './edit-card.module.sass';
 import { ValidationSchema, ValidationType } from "./validation-schema";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { $cards, updateCard } from "~/entities/card";
+import { $cards, CardSize, updateCard } from "~/entities/card";
 import { useUnit } from "effector-react";
 
 interface IEditCardProps {
@@ -30,13 +30,15 @@ export const EditCard: React.FC<IEditCardProps> = ({
     values: {
       title: selectedCard?.title ?? '',
       description: selectedCard?.description ?? '',
+      size: selectedCard?.size ?? 3,
     },
   });
 
-  const onSubmit: SubmitHandler<ValidationType> = (form) => {
+  const onSubmit: SubmitHandler<ValidationType> = ({ size, ...form  }) => {
     updateCard({
       id,
-      ...form
+      size: Number(size) as CardSize,
+      ...form,
     });
     setModalOpen(false);
   };
