@@ -1,10 +1,8 @@
 import React, { CSSProperties, PropsWithChildren } from "react";
-import type { NumericRange } from "~/shared/types";
 import cls from './card.module.sass';
 import { useSortable } from "@dnd-kit/sortable";
 import { CSS } from '@dnd-kit/utilities';
-
-export type CardSize = NumericRange<3, 12>;
+import { CardSize } from "../types";
 
 interface ICardProps extends PropsWithChildren {
   id: string;
